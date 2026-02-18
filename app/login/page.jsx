@@ -5,13 +5,13 @@ import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { 
-  LayoutDashboard, 
-  Mail, 
-  Lock, 
+import {
+  LayoutDashboard,
+  Mail,
+  Lock,
   ArrowRight,
   Github,
-  Chrome
+  Chrome,
 } from "lucide-react";
 
 const loginSchema = z.object({
@@ -44,7 +44,9 @@ export default function LoginPage() {
             <LayoutDashboard size={28} />
           </div>
           <h1 className="text-2xl font-bold tracking-tight">Welcome back</h1>
-          <p className="text-zinc-500 mt-2">Enter your details to access your dashboard</p>
+          <p className="text-zinc-500 mt-2">
+            Enter your details to access your dashboard
+          </p>
         </div>
 
         {/* Login Form */}
@@ -53,7 +55,10 @@ export default function LoginPage() {
             <div className="space-y-2">
               <label className="text-sm font-semibold px-1">Email</label>
               <div className="relative">
-                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-400" size={18} />
+                <Mail
+                  className="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-400"
+                  size={18}
+                />
                 <input
                   {...register("email")}
                   type="email"
@@ -62,19 +67,27 @@ export default function LoginPage() {
                 />
               </div>
               {errors.email && (
-                <p className="text-xs text-red-500 font-medium px-1 mt-1">{errors.email.message}</p>
+                <p className="text-xs text-red-500 font-medium px-1 mt-1">
+                  {errors.email.message}
+                </p>
               )}
             </div>
 
             <div className="space-y-2">
               <div className="flex items-center justify-between px-1">
                 <label className="text-sm font-semibold">Password</label>
-                <button type="button" className="text-xs font-bold text-zinc-400 hover:text-black dark:hover:text-white transition-colors">
+                <button
+                  type="button"
+                  className="text-xs font-bold text-zinc-400 hover:text-black dark:hover:text-white transition-colors"
+                >
                   Forgot?
                 </button>
               </div>
               <div className="relative">
-                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-400" size={18} />
+                <Lock
+                  className="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-400"
+                  size={18}
+                />
                 <input
                   {...register("password")}
                   type="password"
@@ -83,7 +96,9 @@ export default function LoginPage() {
                 />
               </div>
               {errors.password && (
-                <p className="text-xs text-red-500 font-medium px-1 mt-1">{errors.password.message}</p>
+                <p className="text-xs text-red-500 font-medium px-1 mt-1">
+                  {errors.password.message}
+                </p>
               )}
             </div>
 
@@ -119,8 +134,11 @@ export default function LoginPage() {
         </div>
 
         <p className="text-center mt-8 text-sm text-zinc-500">
-          Don't have an account?{" "}
-          <Link href="/signup" className="font-bold text-black dark:text-white hover:underline">
+          Don&apos;t have an account?{" "}
+          <Link
+            href="/signup"
+            className="font-bold text-black dark:text-white hover:underline"
+          >
             Create account
           </Link>
         </p>
