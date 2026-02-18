@@ -13,7 +13,7 @@ export function UserLayoutClient({ children }) {
     useEffect(() => {
         if (loading) return;
         if (user && user.role !== "user") {
-            router.replace(`/dashboard${user.role}/${user.role}`);
+            router.replace(`/dashboard/${user.role}`);
         }
     }, [user, loading, router]);
 

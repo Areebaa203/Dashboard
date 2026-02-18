@@ -40,7 +40,7 @@ export function LoginClient() {
     setAuthError("");
     const result = login(data.email, data.password);
     if (result.success) {
-      router.push(`/dashboard${result.role}/${result.role}`);
+      router.push(`/dashboard/${result.role}`);
     } else {
       setAuthError(result.error);
     }

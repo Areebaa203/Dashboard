@@ -3,9 +3,24 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 
 const DEMO_USERS = [
-  { email: "user@gmail.com", password: "demo1234", role: "user", name: "User Demo" },
-  { email: "seller@gmail.com", password: "demo1234", role: "seller", name: "Seller Demo" },
-  { email: "admin@gmail.com", password: "demo1234", role: "admin", name: "Admin Demo" },
+  {
+    email: "user@gmail.com",
+    password: "demo1234",
+    role: "user",
+    name: "User Demo",
+  },
+  {
+    email: "seller@gmail.com",
+    password: "demo1234",
+    role: "seller",
+    name: "Seller Demo",
+  },
+  {
+    email: "admin@gmail.com",
+    password: "demo1234",
+    role: "admin",
+    name: "Admin Demo",
+  },
 ];
 
 const AuthContext = createContext(null);
@@ -30,15 +45,22 @@ export function AuthProvider({ children }) {
 
   const login = (email, password) => {
     const match = DEMO_USERS.find(
-      (u) => u.email === email.trim().toLowerCase() && u.password === password
+      (u) => u.email === email.trim().toLowerCase() && u.password === password,
     );
     if (match) {
-      const userData = { email: match.email, role: match.role, name: match.name };
+      const userData = {
+        email: match.email,
+        role: match.role,
+        name: match.name,
+      };
       setUser(userData);
       localStorage.setItem("dashboard_user", JSON.stringify(userData));
       return { success: true, role: match.role };
     }
-    return { success: false, error: "Invalid email or password. Please try the demo credentials." };
+    return {
+      success: false,
+      error: "Invalid email or password. Please try the demo credentials.",
+    };
   };
 
   const logout = () => {

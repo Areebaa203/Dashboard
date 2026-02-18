@@ -13,7 +13,7 @@ export function SellerLayoutClient({ children }) {
     useEffect(() => {
         if (loading) return;
         if (user && user.role !== "seller") {
-            router.replace(`/dashboard${user.role}/${user.role}`);
+            router.replace(`/dashboard/${user.role}`);
         }
     }, [user, loading, router]);
 

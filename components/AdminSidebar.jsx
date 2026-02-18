@@ -27,11 +27,11 @@ import {
 import { useAuth } from "@/context/AuthContext";
 
 const menuItems = [
-  { href: "/dashboardadmin/admin", icon: ShieldCheck, label: "Admin Panel" },
-  { href: "/dashboardadmin/admin/users", icon: Users, label: "User Registry" },
-  { href: "/dashboardadmin/admin/products", icon: LayoutDashboard, label: "Inventory" },
-  { href: "/dashboardadmin/admin/management", icon: FolderKanban, label: "Management" },
-  { href: "/dashboardadmin/admin/profile", icon: User, label: "Profile" },
+  { href: "/dashboard/admin", icon: ShieldCheck, label: "Admin Panel" },
+  { href: "/dashboard/admin/users", icon: Users, label: "User Registry" },
+  { href: "/dashboard/admin/products", icon: LayoutDashboard, label: "Inventory" },
+  { href: "/dashboard/admin/management", icon: FolderKanban, label: "Management" },
+  { href: "/dashboard/admin/profile", icon: User, label: "Profile" },
 ];
 
 const SidebarItem = ({ href, icon: Icon, label, active }) => (
@@ -87,10 +87,10 @@ export function AdminSidebar() {
       {/* Bottom */}
       <div className="pt-6 mt-6 border-t border-zinc-100 dark:border-zinc-900 space-y-1">
         <SidebarItem
-          href="/dashboardadmin/admin/settings"
+          href="/dashboard/admin/settings"
           icon={Settings}
           label="Settings"
-          active={pathname === "/dashboardadmin/admin/settings"}
+          active={pathname === "/dashboard/admin/settings"}
         />
         <AlertDialog>
           <AlertDialogTrigger asChild>

@@ -13,7 +13,7 @@ export function AdminLayoutClient({ children }) {
     useEffect(() => {
         if (loading) return;
         if (user && user.role !== "admin") {
-            router.replace(`/dashboard${user.role}/${user.role}`);
+            router.replace(`/dashboard/${user.role}`);
         }
     }, [user, loading, router]);
 

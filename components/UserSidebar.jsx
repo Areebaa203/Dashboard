@@ -26,10 +26,10 @@ import {
 import { useAuth } from "@/context/AuthContext";
 
 const menuItems = [
-  { href: "/dashboarduser/user", icon: User, label: "Overview" },
-  { href: "/dashboarduser/user/orders", icon: ShoppingBag, label: "Orders" },
-  { href: "/dashboarduser/user/wishlist", icon: Heart, label: "Wishlist" },
-  { href: "/dashboarduser/user/profile", icon: User, label: "Profile" },
+  { href: "/dashboard/user", icon: User, label: "Overview" },
+  { href: "/dashboard/user/orders", icon: ShoppingBag, label: "Orders" },
+  { href: "/dashboard/user/wishlist", icon: Heart, label: "Wishlist" },
+  { href: "/dashboard/user/profile", icon: User, label: "Profile" },
 ];
 
 const SidebarItem = ({ href, icon: Icon, label, active }) => (
@@ -85,10 +85,10 @@ export function UserSidebar() {
       {/* Bottom */}
       <div className="pt-6 mt-6 border-t border-zinc-100 dark:border-zinc-900 space-y-1">
         <SidebarItem
-          href="/dashboarduser/user/settings"
+          href="/dashboard/user/settings"
           icon={Settings}
           label="Settings"
-          active={pathname === "/dashboarduser/user/settings"}
+          active={pathname === "/dashboard/user/settings"}
         />
         <AlertDialog>
           <AlertDialogTrigger asChild>
