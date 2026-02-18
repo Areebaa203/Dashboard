@@ -49,7 +49,7 @@ const SidebarItem = ({ href, icon: Icon, label, active }) => (
   </Link>
 );
 
-export function AdminSidebar() {
+export function AdminSidebar({ className }) {
   const pathname = usePathname();
   const router = useRouter();
   const { logout } = useAuth();
@@ -60,7 +60,7 @@ export function AdminSidebar() {
   };
 
   return (
-    <div className="flex flex-col h-full bg-white dark:bg-black border-r border-zinc-200 dark:border-zinc-800 w-64 p-6">
+    <div className={cn("flex flex-col h-full bg-white dark:bg-black p-6", className)}>
       {/* Logo */}
       <div className="flex items-center gap-3 mb-10 px-2">
         <div className="w-9 h-9 bg-indigo-500 rounded-xl flex items-center justify-center">

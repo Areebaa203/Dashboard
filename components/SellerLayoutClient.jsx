@@ -2,9 +2,14 @@
 
 import React, { useEffect } from "react";
 import { SellerSidebar } from "@/components/SellerSidebar";
-import { Search, Bell } from "lucide-react";
+import { Search, Bell, Menu } from "lucide-react";
 import { useAuth } from "@/context/AuthContext";
 import { useRouter } from "next/navigation";
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 
 export function SellerLayoutClient({ children }) {
     const { user, loading } = useAuth();
@@ -27,18 +32,29 @@ export function SellerLayoutClient({ children }) {
 
   return (
     <div className="flex h-screen bg-zinc-50 dark:bg-zinc-950">
-      <SellerSidebar />
-
       <main className="flex-1 flex flex-col min-w-0 overflow-hidden">
         {/* Header */}
         <header className="h-16 bg-white dark:bg-black border-b border-zinc-200 dark:border-zinc-800 flex items-center justify-between px-8 shrink-0">
-          <div className="relative w-80 hidden sm:block">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-400" size={16} />
-            <input
-              type="text"
-              placeholder="Search..."
-              className="w-full bg-zinc-100 dark:bg-zinc-900 border-none rounded-xl py-2 pl-9 pr-4 text-sm focus:ring-2 focus:ring-emerald-500 transition-all outline-none"
-            />
+          <div className="flex items-center gap-4">
+            <Sheet>
+              <SheetTrigger asChild>
+                <button className="p-2 -ml-2 rounded-xl hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-all">
+                  <Menu size={20} className="text-zinc-600 dark:text-zinc-400" />
+                </button>
+              </SheetTrigger>
+              <SheetContent side="left" className="p-0 w-72 border-none">
+                <SellerSidebar className="w-full" />
+              </SheetContent>
+            </Sheet>
+
+            <div className="relative w-80 hidden sm:block">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-400" size={16} />
+              <input
+                type="text"
+                placeholder="Search..."
+                className="w-full bg-zinc-100 dark:bg-zinc-900 border-none rounded-xl py-2 pl-9 pr-4 text-sm focus:ring-2 focus:ring-emerald-500 transition-all outline-none"
+              />
+            </div>
           </div>
 
           <div className="flex items-center gap-4 ml-auto">
