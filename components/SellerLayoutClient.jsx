@@ -16,6 +16,7 @@ import {
 export function SellerLayoutClient({ children }) {
     const { user, loading } = useAuth();
     const router = useRouter();
+    const [open, setOpen] = React.useState(false);
 
     useEffect(() => {
         if (loading) return;
@@ -38,7 +39,7 @@ export function SellerLayoutClient({ children }) {
         {/* Header */}
         <header className="h-16 bg-white dark:bg-black border-b border-zinc-200 dark:border-zinc-800 flex items-center justify-between px-4 sm:px-8 shrink-0">
           <div className="flex items-center gap-4">
-            <Sheet>
+            <Sheet open={open} onOpenChange={setOpen}>
               <SheetTrigger asChild>
                 <button className="p-2 -ml-2 rounded-xl hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-all">
                   <Menu size={20} className="text-zinc-600 dark:text-zinc-400" />
@@ -47,7 +48,7 @@ export function SellerLayoutClient({ children }) {
               <SheetContent side="left" className="p-0 w-72 border-none">
                 <SheetTitle className="sr-only">Seller Navigation</SheetTitle>
                 <SheetDescription className="sr-only">Manage your products and orders</SheetDescription>
-                <SellerSidebar className="w-full" />
+                <SellerSidebar className="w-full" onItemClick={() => setOpen(false)} />
               </SheetContent>
             </Sheet>
 

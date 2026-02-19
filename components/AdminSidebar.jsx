@@ -34,9 +34,10 @@ const menuItems = [
   { href: "/dashboard/admin/profile", icon: User, label: "Profile" },
 ];
 
-const SidebarItem = ({ href, icon: Icon, label, active }) => (
+const SidebarItem = ({ href, icon: Icon, label, active, onClick }) => (
   <Link
     href={href}
+    onClick={onClick}
     className={cn(
       "flex items-center gap-3 px-4 py-2.5 rounded-xl transition-all duration-200",
       active
@@ -49,7 +50,7 @@ const SidebarItem = ({ href, icon: Icon, label, active }) => (
   </Link>
 );
 
-export function AdminSidebar({ className }) {
+export function AdminSidebar({ className, onItemClick }) {
   const pathname = usePathname();
   const router = useRouter();
   const { logout } = useAuth();
@@ -80,6 +81,7 @@ export function AdminSidebar({ className }) {
             key={item.href}
             {...item}
             active={pathname === item.href}
+            onClick={onItemClick}
           />
         ))}
       </nav>
@@ -91,6 +93,7 @@ export function AdminSidebar({ className }) {
           icon={Settings}
           label="Settings"
           active={pathname === "/dashboard/admin/settings"}
+          onClick={onItemClick}
         />
         <AlertDialog>
           <AlertDialogTrigger asChild>
