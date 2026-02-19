@@ -101,7 +101,7 @@ export function AdminProductsClient() {
         </div>
 
         <div className="overflow-x-auto">
-          <table className="w-full text-left border-collapse">
+          <table className="w-full text-left border-collapse min-w-[1000px]">
             <thead>
               <tr className="text-[10px] uppercase tracking-[0.15em] text-zinc-400 font-bold border-b border-zinc-100 dark:border-zinc-900">
                 <th className="px-8 py-5">Product Details</th>

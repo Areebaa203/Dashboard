@@ -110,28 +110,28 @@ export function UserOrdersClient() {
                     {order.status}
                   </span>
                 </div>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 border-t border-zinc-100 dark:border-zinc-900">
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 border-t border-zinc-100 dark:border-zinc-900 overflow-hidden">
                   <div className="space-y-1">
-                    <p className="text-[10px] text-zinc-400 font-bold uppercase tracking-widest flex items-center gap-1.5">
+                    <p className="text-[10px] text-zinc-400 font-bold uppercase tracking-widest flex items-center gap-1.5 truncate">
                       <Calendar size={12} /> Date Placed
                     </p>
-                    <p className="text-sm font-semibold">{order.date}</p>
+                    <p className="text-xs sm:text-sm font-semibold">{order.date}</p>
                   </div>
-                  <div className="space-y-1">
-                    <p className="text-[10px] text-zinc-400 font-bold uppercase tracking-widest flex items-center gap-1.5">
+                  <div className="space-y-1 text-right sm:text-left">
+                    <p className="text-[10px] text-zinc-400 font-bold uppercase tracking-widest flex items-center gap-1.5 justify-end sm:justify-start truncate">
                       <DollarSign size={12} /> Total Amount
                     </p>
-                    <p className="text-sm font-semibold">${order.price.toFixed(2)}</p>
+                    <p className="text-xs sm:text-sm font-semibold">${order.price.toFixed(2)}</p>
                   </div>
                   <div className="space-y-1">
-                    <p className="text-[10px] text-zinc-400 font-bold uppercase tracking-widest flex items-center gap-1.5">
+                    <p className="text-[10px] text-zinc-400 font-bold uppercase tracking-widest flex items-center gap-1.5 truncate">
                       <Package size={12} /> Items
                     </p>
-                    <p className="text-sm font-semibold">1 Product</p>
+                    <p className="text-xs sm:text-sm font-semibold">1 Product</p>
                   </div>
                   <div className="flex items-center justify-end">
-                    <button className="flex items-center gap-1 text-sm font-bold text-zinc-900 dark:text-white hover:gap-2 transition-all">
-                      View Details <ChevronRight size={16} />
+                    <button className="flex items-center gap-1 text-[10px] sm:text-sm font-bold text-zinc-900 dark:text-white hover:gap-2 transition-all">
+                      View <span className="hidden sm:inline">Details</span> <ChevronRight size={16} />
                     </button>
                   </div>
                 </div>

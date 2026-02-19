@@ -9,6 +9,8 @@ import {
   Sheet,
   SheetContent,
   SheetTrigger,
+  SheetTitle,
+  SheetDescription,
 } from "@/components/ui/sheet";
 
 export function AdminLayoutClient({ children }) {
@@ -34,7 +36,7 @@ export function AdminLayoutClient({ children }) {
     <div className="flex h-screen bg-zinc-50 dark:bg-zinc-950">
       <main className="flex-1 flex flex-col min-w-0 overflow-hidden">
         {/* Header */}
-        <header className="h-16 bg-white dark:bg-black border-b border-zinc-200 dark:border-zinc-800 flex items-center justify-between px-8 shrink-0">
+        <header className="h-16 bg-white dark:bg-black border-b border-zinc-200 dark:border-zinc-800 flex items-center justify-between px-4 sm:px-8 shrink-0">
           <div className="flex items-center gap-4">
             <Sheet>
               <SheetTrigger asChild>
@@ -43,6 +45,8 @@ export function AdminLayoutClient({ children }) {
                 </button>
               </SheetTrigger>
               <SheetContent side="left" className="p-0 w-72 border-none">
+                <SheetTitle className="sr-only">Admin Control Panel</SheetTitle>
+                <SheetDescription className="sr-only">Global administration and moderation tools</SheetDescription>
                 <AdminSidebar className="w-full" />
               </SheetContent>
             </Sheet>
@@ -75,7 +79,7 @@ export function AdminLayoutClient({ children }) {
         </header>
 
         {/* Page Content */}
-        <div className="flex-1 overflow-y-auto p-8">
+        <div className="flex-1 overflow-y-auto p-4 sm:p-8">
           {children}
         </div>
       </main>

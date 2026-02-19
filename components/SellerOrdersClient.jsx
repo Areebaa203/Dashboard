@@ -128,16 +128,16 @@ export function SellerOrdersClient() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 lg:grid-cols-3 gap-8 lg:text-center shrink-0">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 lg:gap-8 lg:text-center shrink-0">
                 <div className="space-y-1">
                   <p className="text-[10px] text-zinc-400 font-bold uppercase tracking-widest">Date</p>
                   <p className="text-sm font-bold">{order.date}</p>
                 </div>
-                <div className="space-y-1">
+                <div className="space-y-1 text-right sm:text-center">
                   <p className="text-[10px] text-zinc-400 font-bold uppercase tracking-widest">Amount</p>
                   <p className="text-sm font-bold">{order.amount}</p>
                 </div>
-                <div className="space-y-1 col-span-2 lg:col-span-1">
+                <div className="space-y-1 col-span-2 sm:col-span-1">
                   <p className="text-[10px] text-zinc-400 font-bold uppercase tracking-widest">Status</p>
                   <div className="flex items-center lg:justify-center gap-2 mt-1">
                     <span className={cn(

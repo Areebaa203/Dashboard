@@ -117,12 +117,12 @@ export function UserDashboardClient() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Recent Orders */}
         <div className="lg:col-span-2 bg-white dark:bg-black rounded-3xl border border-zinc-200 dark:border-zinc-800 overflow-hidden">
-          <div className="p-6 border-b border-zinc-100 dark:border-zinc-900 flex items-center justify-between">
+          <div className="p-6 border-b border-zinc-100 dark:border-zinc-900 flex items-center justify-between flex-wrap gap-2">
             <h2 className="font-bold text-lg">Recent Orders</h2>
             <button className="text-sm text-zinc-500 hover:text-black dark:hover:text-white font-medium">View all</button>
           </div>
-          <div className="p-0">
-            <table className="w-full text-left">
+          <div className="overflow-x-auto">
+            <table className="w-full text-left min-w-[500px]">
               <thead>
                 <tr className="text-[10px] uppercase tracking-widest text-zinc-400 font-bold border-b border-zinc-100 dark:border-zinc-900">
                   <th className="px-6 py-4">Item</th>

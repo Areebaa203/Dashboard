@@ -77,31 +77,33 @@ export function AdminDashboardClient() {
 
   return (
     <div className="max-w-6xl mx-auto space-y-10">
-      <header className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-        <div>
-          <div className="flex items-center gap-2 mb-1">
-            <Lock size={16} className="text-ローズ-500" />
-            <span className="text-[10px] font-bold uppercase tracking-widest text-ローズ-500">
-              Security: Stable
-            </span>
+      <header className="flex flex-col gap-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <div className="flex items-center gap-2 mb-1">
+              <Lock size={16} className="text-rose-500" />
+              <span className="text-[10px] font-bold uppercase tracking-widest text-rose-500">
+                Security: Stable
+              </span>
+            </div>
+            <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">System Admin</h1>
+            <p className="text-sm text-zinc-500">
+              Complete control over the platform and infrastructure.
+            </p>
           </div>
-          <h1 className="text-3xl font-bold tracking-tight">System Admin</h1>
-          <p className="text-zinc-500">
-            Complete control over the platform and infrastructure.
-          </p>
-        </div>
-        <div className="flex items-center gap-3">
-          <button className="px-5 py-2.5 rounded-xl bg-zinc-100 dark:bg-zinc-900 font-bold text-sm hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-all">
-            System Logs
-          </button>
-          <button className="px-5 py-2.5 rounded-xl bg-black dark:bg-zinc-50 dark:text-black text-white font-bold text-sm hover:opacity-90 transition-all shadow-lg shadow-black/10">
-            Platform Settings
-          </button>
+          <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+            <button className="flex-1 sm:flex-none px-4 sm:px-5 py-2.5 rounded-xl bg-zinc-100 dark:bg-zinc-900 font-bold text-xs sm:text-sm hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-all">
+              Logs
+            </button>
+            <button className="flex-1 sm:flex-none px-4 sm:px-5 py-2.5 rounded-xl bg-black dark:bg-zinc-50 dark:text-black text-white font-bold text-xs sm:text-sm hover:opacity-90 transition-all shadow-lg shadow-black/10">
+              Settings
+            </button>
+          </div>
         </div>
       </header>
 
       {/* Admin Stats Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
         <AdminStat
           label="Total Users"
           value="42,891"
@@ -128,9 +130,9 @@ export function AdminDashboardClient() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* User Management Table */}
         <div className="lg:col-span-2 bg-white dark:bg-black rounded-3xl border border-zinc-200 dark:border-zinc-800 p-0 overflow-hidden">
-          <div className="p-6 border-b border-zinc-100 dark:border-zinc-900 flex items-center justify-between bg-zinc-50/50 dark:bg-zinc-900/10">
+          <div className="p-4 sm:p-6 border-b border-zinc-100 dark:border-zinc-900 flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-zinc-50/50 dark:bg-zinc-900/10">
             <h2 className="font-bold text-lg">User Management</h2>
-            <div className="relative">
+            <div className="relative w-full sm:w-64">
               <Search
                 className="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-400"
                 size={14}
@@ -138,11 +140,12 @@ export function AdminDashboardClient() {
               <input
                 type="text"
                 placeholder="Find users..."
-                className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl py-1.5 pl-9 pr-4 text-xs outline-none focus:ring-2 focus:ring-black"
+                className="w-full bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl py-1.5 pl-9 pr-4 text-xs outline-none focus:ring-2 focus:ring-black"
               />
             </div>
           </div>
-          <table className="w-full">
+          <div className="overflow-x-auto">
+            <table className="w-full min-w-[600px]">
             <thead>
               <tr className="text-[10px] uppercase tracking-widest text-zinc-400 font-bold border-b border-zinc-100 dark:border-zinc-900 bg-zinc-50/30 dark:bg-zinc-900/5">
                 <th className="px-6 py-4 text-left">User</th>
@@ -189,6 +192,7 @@ export function AdminDashboardClient() {
               ))}
             </tbody>
           </table>
+          </div>
         </div>
 
         {/* Infrastructure Health */}

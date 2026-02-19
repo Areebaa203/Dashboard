@@ -85,7 +85,7 @@ export function AdminUsersClient() {
         </div>
 
         <div className="overflow-x-auto">
-          <table className="w-full text-left">
+          <table className="w-full text-left min-w-[900px]">
             <thead>
               <tr className="text-[10px] uppercase tracking-[0.2em] text-zinc-400 font-black border-b border-zinc-100 dark:border-zinc-900 bg-zinc-50/10 dark:bg-zinc-900/5">
                 <th className="px-8 py-6">Identity</th>
