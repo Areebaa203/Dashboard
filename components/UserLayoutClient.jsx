@@ -35,22 +35,27 @@ export function UserLayoutClient({ children }) {
 
   return (
     <div className="flex h-screen bg-zinc-50 dark:bg-zinc-950">
+      {/* Desktop Sidebar */}
+      <UserSidebar className="hidden lg:flex w-72 border-r border-zinc-200 dark:border-zinc-800" />
+
       <main className="flex-1 flex flex-col min-w-0 overflow-hidden">
         {/* Header */}
         <header className="h-16 bg-white dark:bg-black border-b border-zinc-200 dark:border-zinc-800 flex items-center justify-between px-4 sm:px-8 shrink-0">
           <div className="flex items-center gap-4">
-            <Sheet open={open} onOpenChange={setOpen}>
-              <SheetTrigger asChild>
-                <button className="p-2 -ml-2 rounded-xl hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-all">
-                  <Menu size={20} className="text-zinc-600 dark:text-zinc-400" />
-                </button>
-              </SheetTrigger>
-              <SheetContent side="left" className="p-0 w-72 border-none">
-                <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
-                <SheetDescription className="sr-only">Access different sections of your dashboard</SheetDescription>
-                <UserSidebar className="w-full" onItemClick={() => setOpen(false)} />
-              </SheetContent>
-            </Sheet>
+            <div className="lg:hidden">
+              <Sheet open={open} onOpenChange={setOpen}>
+                <SheetTrigger asChild>
+                  <button className="p-2 -ml-2 rounded-xl hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-all">
+                    <Menu size={20} className="text-zinc-600 dark:text-zinc-400" />
+                  </button>
+                </SheetTrigger>
+                <SheetContent side="left" className="p-0 w-72 border-none">
+                  <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
+                  <SheetDescription className="sr-only">Access different sections of your dashboard</SheetDescription>
+                  <UserSidebar className="w-full" onItemClick={() => setOpen(false)} />
+                </SheetContent>
+              </Sheet>
+            </div>
 
             <div className="relative w-80 hidden sm:block">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-400" size={16} />
